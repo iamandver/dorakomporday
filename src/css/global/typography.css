@@ -1,0 +1,38 @@
+/*@font-face {*/
+/*    font-family : Inter;*/
+/*    src         : url("");*/
+/*    font-weight : 100;*/
+/*    font-style  : normal;*/
+/*}*/
+
+:root {
+    --font-h1                   : normal normal 700 5.2rem "Work Sans", sans-serif;
+    --font-h2                   : normal normal 700 3.2rem "Work Sans", sans-serif;
+    --font-h3                   : normal normal 600 2.4rem "Work Sans", sans-serif;
+
+    --font-body                 : normal normal 300 1.6rem "Work Sans", sans-serif;
+
+    --font-link                 : normal normal 300 1.6rem "Work Sans", sans-serif;
+    --font-button               : normal normal 500 1.4rem "Work Sans", sans-serif;
+
+    --font-logo                 : normal normal 600 2.2rem "Work Sans", sans-serif;
+    --font-portfolio-item-title : normal normal 500 2.0rem "Work Sans", sans-serif;
+    --font-portfolio-item-type  : normal normal 400 1.6rem "Work Sans", sans-serif;
+
+}
+
+h1 {
+    font : var(--font-h1);
+}
+
+h2 {
+    font : var(--font-h2);
+}
+
+h3 {
+    font : var(--font-h3);
+}
+
+p {
+    font : var(--font-body);
+}

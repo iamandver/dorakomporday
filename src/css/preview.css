@@ -1,0 +1,27 @@
+body {
+    background-color : var(--color-grey-1);
+}
+
+.main-content-bg {
+    display         : flex;
+    flex-direction  : column;
+    /*justify-content : center;*/
+    align-items     : center;
+
+    height          : calc(100dvh - var(--nav-bar-height));
+
+    margin          : auto;
+}
+
+.main-content {
+    --content-gap    : 1rem;
+
+    height           : 400px;
+    width            : 400px;
+    background-color : white;
+    max-width        : var(--var-content-width);
+    display          : flex;
+    gap              : var(--content-gap);
+    /*justify-content  : center;*/
+    /*flex-wrap        : wrap;*/
+}

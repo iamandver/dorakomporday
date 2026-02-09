@@ -1,0 +1,117 @@
+body {
+    background-color : var(--color-grey-1);
+}
+
+main {
+    height : 100dvh;
+}
+
+.main-content-bg {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+
+    height          : calc(100dvh - var(--nav-bar-height));
+
+    margin          : auto;
+
+    .main-content {
+        --content-height : 480px;
+        --content-gap    : 4rem;
+        /*background-color : white;*/
+        /*height           : 50dvh;*/
+        /*width            : 50dvw;*/
+
+        max-width        : var(--var-content-width);
+        display          : flex;
+        gap              : var(--content-gap);
+        justify-content  : center;
+        flex-wrap        : wrap;
+
+        .picture {
+            border-radius : 100%;
+            flex-shrink   : 0;
+            height        : var(--content-height);
+            width         : var(--content-height);
+            /*height     : 100%;*/
+            /*object-fit  : contain;*/
+
+            overflow      : hidden;
+
+            img {
+                height     : var(--content-height);
+                object-fit : cover;
+                filter     : grayscale(100) brightness(130%);
+            }
+        }
+
+        .welcome {
+
+            margin-block    : 2rem;
+            display         : flex;
+            flex-direction  : column;
+            gap             : var(--content-gap);
+            justify-content : center;
+
+            .welcome-text {
+
+                display        : flex;
+                flex-direction : column;
+                /*gap            : 2rem;*/
+
+                .welcome-title {
+                    /*color       : var(--color-yellow);*/
+                    transform   : translate(-5px);
+                    font        : var(--font-h1);
+                    font-size   : 8.4rem;
+                    line-height : 1;
+                }
+
+                .welcome-subtitle {
+                    font       : var(--font-h3);
+                    margin-top : 3rem;
+                }
+
+                .welcome-body {
+                    margin-top : 1rem;
+                    max-width  : 48ch;
+                }
+            }
+
+            .welcome-links {
+                display : flex;
+                gap     : 1rem;
+
+                .welcome-link {
+
+                    font             : var(--font-button);
+                    background-color : var(--color-grey-2);
+
+                    padding-inline   : 4rem;
+                    padding-block    : 2rem;
+                    border-radius    : 1rem;
+
+                    text-align       : center;
+                    align-content    : center;
+
+                    text-wrap        : nowrap;
+                }
+
+                .welcome-link:hover {
+                    background-color : black;
+                    color            : var(--color-grey-1);
+                }
+
+            }
+        }
+    }
+}
+
+.footer {
+    margin-inline : auto;
+    max-width     : var(--var-content-width);
+    border-top    : 1px solid var(--color-grey-3);
+    height        : 128px;
+    /*background-color : black;*/
+}

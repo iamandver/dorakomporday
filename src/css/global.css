@@ -1,0 +1,59 @@
+@import url("global/typography.css");
+@import url("global/vars.css");
+@import url("global/colors.css");
+@import url("global/reset.css");
+@import url("global/classes.css");
+
+:root {
+    --nav-bar-height : 8rem;
+}
+
+.link {
+    font                  : var(--font-link);
+    text-underline-offset : 4px;
+}
+
+.link:hover {
+    text-decoration           : underline;
+    text-decoration-thickness : 2px;
+}
+
+.nav-bar {
+    height          : var(--nav-bar-height);
+    /*background-color : white;*/
+
+    max-width       : var(--var-content-width);
+    margin-inline   : auto;
+
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+
+    .nav-logo {
+        --dot-height : 28px;
+
+        display      : flex;
+        gap          : 1.2rem;
+        align-items  : center;
+
+        .nav-icon {
+
+            height           : var(--dot-height);
+            width            : var(--dot-height);
+            background-color : var(--color-yellow);
+            border-radius    : 100%;
+        }
+
+        .nav-name {
+            text-wrap : nowrap;
+            font      : var(--font-logo);
+        }
+    }
+
+    .nav-links {
+        display : flex;
+        gap     : 2rem;
+
+        /*margin-inline : 2rem;*/
+    }
+}

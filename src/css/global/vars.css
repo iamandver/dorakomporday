@@ -1,0 +1,6 @@
+:root {
+
+    --var-content-width-large : 1280px;
+    --var-panel-margin        : 4rem;
+    --var-content-width       : min(var(--var-content-width-large), calc(100%) - var(--var-panel-margin) * 2);
+}
