@@ -57,3 +57,9 @@
         /*margin-inline : 2rem;*/
     }
 }
+
+@media (max-width : 800px) {
+    .nav-bar .nav-links {
+        display : none;
+    }
+}

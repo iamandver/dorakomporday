@@ -1,11 +1,16 @@
-import {PORTFOLIO} from "../database.js";
+import {findPortfolioItemById} from "../database.js";
 
 document.addEventListener("DOMContentLoaded", init);
 
 function init()
 {
+    // const portfolioContentUrl = new URL("portfolio_content/", CONFIG.ASSETS);
+    // itemElement.href   = new URL(item.launch.href, portfolioContentUrl).href;
+    // itemElement.target = "_blank";
+
+
     const id   = getIdFromQuery();
-    const item = findItemById(id);
+    const item = findPortfolioItemById(id);
 
     if (!item)
     {
@@ -45,6 +50,16 @@ function init()
     }
 
     renderLaunch(item.launch);
+
+    // <video
+    //     muted
+    //     autoPlay
+    //     loop
+    //     playsInline
+    //     preload="metadata"
+    // >
+    //     <source src="assets/videos/preview.mp4" type="video/mp4"/>
+    // </video>
 }
 
 
@@ -52,16 +67,6 @@ function getIdFromQuery()
 {
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
-}
-
-function findItemById(id)
-{
-    if (!id)
-    {
-        return null;
-    }
-
-    return PORTFOLIO.find((x) => x.id === id) ?? null;
 }
 
 function clear(el)
