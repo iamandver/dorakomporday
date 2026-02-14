@@ -3,7 +3,7 @@ body {
 }
 
 main {
-    height : 100dvh;
+    /*height : 100dvh;*/
 }
 
 .main-content-bg {
@@ -12,35 +12,29 @@ main {
     justify-content : center;
     align-items     : center;
 
-    height          : calc(100dvh - var(--nav-bar-height));
+    min-height      : calc(100dvh - var(--nav-bar-height));
 
     margin          : auto;
 
     .main-content {
-        --content-height : 480px;
-        --content-gap    : 4rem;
-        /*background-color : white;*/
-        /*height           : 50dvh;*/
-        /*width            : 50dvw;*/
+        --image-size          : 480px;
+        --content-gap         : 4rem;
 
-        max-width        : var(--var-content-width);
-        display          : flex;
-        gap              : var(--content-gap);
-        justify-content  : center;
-        flex-wrap        : wrap;
+        max-width             : var(--var-content-width);
+        display               : grid;
+        grid-template-columns : 1fr 1fr;
+        gap                   : var(--content-gap);
+        justify-content       : center;
 
         .picture {
             border-radius : 100%;
             flex-shrink   : 0;
-            height        : var(--content-height);
-            width         : var(--content-height);
-            /*height     : 100%;*/
-            /*object-fit  : contain;*/
-
+            height        : var(--image-size);
+            width         : var(--image-size);
             overflow      : hidden;
 
             img {
-                height     : var(--content-height);
+                height     : var(--image-size);
                 object-fit : cover;
                 filter     : grayscale(100) brightness(130%);
             }
@@ -48,40 +42,45 @@ main {
 
         .welcome {
 
+            min-width       : 0;
             margin-block    : 2rem;
             display         : flex;
             flex-direction  : column;
-            gap             : var(--content-gap);
+            /*gap             : var(--content-gap);*/
             justify-content : center;
 
-            .welcome-text {
+            /*.welcome-text {*/
 
-                display        : flex;
-                flex-direction : column;
-                /*gap            : 2rem;*/
+            /*    display        : flex;*/
+            /*    flex-direction : column;*/
+            /*    max-width      : var(--var-content-width);*/
 
-                .welcome-title {
-                    /*color       : var(--color-yellow);*/
-                    transform   : translate(-5px);
-                    font        : var(--font-h1);
-                    font-size   : 8.4rem;
-                    line-height : 1;
-                }
-
-                .welcome-subtitle {
-                    font       : var(--font-h3);
-                    margin-top : 3rem;
-                }
-
-                .welcome-body {
-                    margin-top : 1rem;
-                    max-width  : 48ch;
-                }
+            .welcome-title {
+                /*color       : var(--color-yellow);*/
+                transform   : translate(-5px);
+                font        : var(--font-h1);
+                font-size   : 8.4rem;
+                line-height : 1;
             }
 
+            .welcome-subtitle {
+                font       : var(--font-h3);
+                margin-top : 3rem;
+            }
+
+            .welcome-body {
+                margin-top : 1rem;
+                max-width  : 48ch;
+                min-width  : 0;
+            }
+
+            /*}*/
+
             .welcome-links {
-                display : flex;
-                gap     : 1rem;
+                margin-top : var(--content-gap);
+                display    : flex;
+                gap        : 1rem;
+                flex-wrap  : wrap;
 
                 .welcome-link {
 
@@ -94,7 +93,6 @@ main {
 
                     text-align       : center;
                     align-content    : center;
-
                     text-wrap        : nowrap;
                 }
 
@@ -109,9 +107,68 @@ main {
 }
 
 .footer {
+    /*background-color : black;*/
     margin-inline : auto;
     max-width     : var(--var-content-width);
     border-top    : 1px solid var(--color-grey-3);
     height        : 128px;
     /*background-color : black;*/
+}
+
+@media (max-width : 1080px) {
+
+    .main-content-bg {
+
+        justify-content : flex-start;
+
+        .main-content {
+            grid-template-columns : 1fr;
+
+            justify-items         : center;
+
+            .picture {
+                --image-size : 320px;
+            }
+
+            .welcome {
+                align-items : center;
+
+                .welcome-text {
+                    align-items : center;
+                }
+
+                .welcome-body {
+                    text-align : center;
+                }
+
+                .welcome-links {
+                    justify-content : center;
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width : 480px) {
+
+    .main-content-bg {
+
+        .main-content {
+
+            .picture {
+                --image-size : 100%;
+
+            }
+
+            .welcome-links {
+                flex-direction : column;
+                width          : 100%;
+            }
+
+            .welcome-link {
+                width : 100%;
+            }
+        }
+    }
 }

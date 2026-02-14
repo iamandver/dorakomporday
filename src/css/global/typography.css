@@ -13,12 +13,12 @@
     --font-body                 : normal normal 300 1.6rem "Work Sans", sans-serif;
 
     --font-link                 : normal normal 300 1.6rem "Work Sans", sans-serif;
+    --font-link-hamburger       : normal normal 600 3.2rem "Work Sans", sans-serif;
     --font-button               : normal normal 500 1.4rem "Work Sans", sans-serif;
 
     --font-logo                 : normal normal 600 2.2rem "Work Sans", sans-serif;
     --font-portfolio-item-title : normal normal 500 2.0rem "Work Sans", sans-serif;
     --font-portfolio-item-type  : normal normal 400 1.6rem "Work Sans", sans-serif;
-
 }
 
 h1 {

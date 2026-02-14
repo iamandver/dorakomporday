@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", init);
 function init()
 {
     renderPortfolioItems();
-
 }
 
 function renderPortfolioItems()
@@ -46,7 +45,7 @@ function renderPortfolioItems()
         itemElement.classList.add("portfolio-item");
         itemElement.href   = previewHtmlTemplateUrl.href;
 
-        const coverImagesUrl = new URL("images/cover_images/", CONFIG.ASSETS);
+        const coverImagesUrl = new URL("images/cover_images/", CONFIG.ASSETS_ROOT);
         const image          = document.createElement("img");
         image.classList.add("item-image");
         image.src = new URL(item.coverImage, coverImagesUrl).href;

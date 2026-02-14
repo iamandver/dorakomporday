@@ -1,7 +1,7 @@
 export const CONFIG = (() =>
 {
-    const SRC_ROOT = new URL("../", import.meta.url);
-    const ASSETS   = new URL("assets/", SRC_ROOT);
+    const SRC_ROOT    = new URL("../", import.meta.url);
+    const ASSETS_ROOT = new URL("assets/", SRC_ROOT);
     // const CSS      = new URL("css/", SRC_ROOT); // optional
     // const JS       = new URL("js/", SRC_ROOT);  // optional
 
@@ -13,7 +13,7 @@ export const CONFIG = (() =>
 
     return {
         SRC_ROOT,
-        ASSETS,
+        ASSETS_ROOT,
         // PAGES,
     };
 })();

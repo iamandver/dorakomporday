@@ -1,6 +1,9 @@
 :root {
 
+    --nav-bar-height          : 8rem;
+    --hamburger-icon-size     : 24px;
+
     --var-content-width-large : 1280px;
-    --var-panel-margin        : 4rem;
+    --var-panel-margin        : calc((var(--nav-bar-height) - var(--hamburger-icon-size)) / 2);
     --var-content-width       : min(var(--var-content-width-large), calc(100%) - var(--var-panel-margin) * 2);
 }

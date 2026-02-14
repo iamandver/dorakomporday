@@ -4,10 +4,6 @@
 @import url("global/reset.css");
 @import url("global/classes.css");
 
-:root {
-    --nav-bar-height : 8rem;
-}
-
 .link {
     font                  : var(--font-link);
     text-underline-offset : 4px;
@@ -19,9 +15,8 @@
 }
 
 .nav-bar {
+    position        : relative;
     height          : var(--nav-bar-height);
-    /*background-color : white;*/
-
     max-width       : var(--var-content-width);
     margin-inline   : auto;
 
@@ -37,7 +32,6 @@
         align-items  : center;
 
         .nav-icon {
-
             height           : var(--dot-height);
             width            : var(--dot-height);
             background-color : var(--color-yellow);
@@ -56,10 +50,101 @@
 
         /*margin-inline : 2rem;*/
     }
+
+    .hamburger-btn {
+        display     : none;
+        background  : none;
+        border      : none;
+        height: var(--hamburger-icon-size);
+        width: var(--hamburger-icon-size);
+        flex-shrink : 0;
+        position    : relative;
+        z-index     : 20;
+
+        /*color       : var(--color-grey-4);*/
+
+        .icon-hamburger {
+            display : block;
+        }
+
+        .icon-x {
+            display : none;
+        }
+    }
+
+    .hamburger-btn.is-open {
+
+        .icon-hamburger {
+            display : none;
+        }
+
+        .icon-x {
+            display : block;
+
+        }
+    }
+
+    .hamburger-btn:hover {
+        cursor : pointer;
+        /*color  : black;*/
+    }
+
+    .hamburger-menu {
+        display : none;
+
+        .hamburger-link {
+            /*color: var();*/
+            text-wrap             : nowrap;
+            width                 : min-content;
+            display               : block;
+            font                  : var(--font-link-hamburger);
+            text-underline-offset : 4px;
+            margin-top            : 4rem;
+        }
+    }
+
+    .hidden {
+        visibility : hidden;
+    }
 }
 
-@media (max-width : 800px) {
-    .nav-bar .nav-links {
-        display : none;
+@media (max-width : 600px) {
+
+    .nav-bar {
+
+        .nav-links {
+            display : none;
+        }
+
+        .hamburger-btn {
+            display : block;
+        }
+
+        .hamburger-menu {
+            display          : block;
+            position         : fixed;
+            inset            : 0;
+            width            : 100dvw;
+            height           : 100dvh;
+            background-color : rgba(255, 255, 255, 0.8);
+            z-index          : 10;
+            backdrop-filter  : blur(10px);
+            padding-left     : 4rem;
+            padding-top      : 4rem;
+            pointer-events   : none;
+
+            opacity          : 0;
+            transform        : translateY(-8px);
+
+            transition       : opacity 180ms ease, transform 180ms ease;
+        }
+
+        .hamburger-menu_visible {
+            pointer-events : auto;
+
+            opacity        : 1;
+            transform      : translateY(0);
+        }
     }
+
 }
