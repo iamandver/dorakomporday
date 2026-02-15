@@ -1,9 +1,6 @@
 import {CONFIG} from "./config.js";
 
-document.addEventListener("DOMContentLoaded", async () =>
-{
-    await init();
-});
+await init();
 
 async function init()
 {
@@ -22,7 +19,7 @@ async function loadNav()
 
     const navHtml = new URL("partials/nav.html", CONFIG.SRC_ROOT);
 
-    const res = await fetch(navHtml, {cache: "no-cache"});
+    const res = await fetch(navHtml, {cache: "force-cache"});
     if (!res.ok)
     {
         throw new Error("Failed to load nav.html");
@@ -77,6 +74,18 @@ function setupHamburgerMenu()
 {
     const hamburgerButton = document.getElementById("hamburger-btn");
     const hamburgerMenu   = document.getElementById("hamburger-menu");
+
+    hamburgerMenu.addEventListener("wheel", (event) =>
+    {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+    });
+
+    hamburgerMenu.addEventListener("mousedown", (event) =>
+    {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+    });
 
     let menuOpen = false;
 

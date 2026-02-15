@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", init);
 function init()
 {
     renderPortfolioItems();
+    initFilterButtons();
 }
 
 function renderPortfolioItems()
@@ -41,9 +42,10 @@ function renderPortfolioItems()
         previousIds.add(item.id);
 
         const previewHtmlTemplateUrl = new URL(`preview.html?id=${item.id}`, CONFIG.SRC_ROOT)
-        const itemElement         = document.createElement("a");
+        const itemElement            = document.createElement("a");
         itemElement.classList.add("portfolio-item");
-        itemElement.href   = previewHtmlTemplateUrl.href;
+        itemElement.href         = previewHtmlTemplateUrl.href;
+        itemElement.dataset.type = item.type;
 
         const coverImagesUrl = new URL("images/cover_images/", CONFIG.ASSETS_ROOT);
         const image          = document.createElement("img");
@@ -59,9 +61,40 @@ function renderPortfolioItems()
 
         const type = document.createElement("p");
         type.classList.add("item-type");
-        type.textContent = item.type;
+        const itemType   = item.type;
+        type.textContent = itemType.charAt(0).toUpperCase() + itemType.slice(1);
         itemElement.appendChild(type);
 
         root.appendChild(itemElement);
     }
+}
+
+function initFilterButtons()
+{
+    const buttons = document.querySelectorAll(".filter-button");
+    const items   = document.querySelectorAll(".portfolio-item");
+
+    function setActive(btn)
+    {
+        buttons.forEach(b => b.classList.toggle("is-active", b === btn));
+    }
+
+    function applyFilter(type)
+    {
+        items.forEach(item =>
+                      {
+                          const matches      = (type === "all") || (item.dataset.type === type);
+                          item.style.display = matches ? "" : "none";
+                      });
+    }
+
+    buttons.forEach(button =>
+                    {
+                        button.addEventListener("click", () =>
+                        {
+                            const type = button.dataset.filter;
+                            setActive(button);
+                            applyFilter(type);
+                        });
+                    });
 }

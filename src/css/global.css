@@ -14,6 +14,11 @@
     text-decoration-thickness : 2px;
 }
 
+#site-nav {
+    display    : block;
+    min-height : var(--nav-bar-height);
+}
+
 .nav-bar {
     position        : relative;
     height          : var(--nav-bar-height);

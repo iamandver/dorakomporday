@@ -3,55 +3,65 @@ body {
 }
 
 .main-content-bg {
-    /*display        : flex;*/
-    /*flex-direction : column;*/
-    /*justify-content : center;*/
-    /*align-items    : center;*/
-
-    height : calc(100dvh - var(--nav-bar-height));
-
-    margin : auto;
-}
-
-.main-content {
-    --content-gap  : 2rem;
-    margin-inline  : auto;
-    margin-top     : var(--var-panel-margin);
-    max-width      : var(--var-content-width);
     display        : flex;
     flex-direction : column;
-    gap            : var(--content-gap);
+    /*justify-content : center;*/
     align-items    : center;
-    /*justify-content  : center;*/
-    /*flex-wrap        : wrap;*/
+    min-height     : calc(100dvh - var(--nav-bar-height));
+    margin         : auto;
 
     .item-title {
-
+        margin-top : var(--var-panel-margin);
     }
 
-    .item-image-snapshot {
+    .main-content {
+        /*--image-size          : 480px;*/
+        --content-gap         : 4rem;
 
-        display         : grid;
-        /*flex-wrap       : wrap;*/
+        margin-inline         : auto;
+        margin-top            : var(--var-panel-margin);
+        max-width             : var(--var-content-width);
 
-        justify-content : center;
-        gap             : var(--content-gap);
+        display               : grid;
+        grid-template-columns : auto 1fr;
+
+        justify-content       : center;
+        gap                   : var(--content-gap);
 
         .item-image {
-            max-width     : min(400px, 100%);
+            height        : 100%;
             object-fit    : cover;
             border-radius : 1rem;
         }
 
-        .item-snapshot {
-            flex-shrink     : 1;
+        .item-text {
             display         : flex;
             flex-direction  : column;
-            /*gap             : var(--content-gap);*/
+            gap             : 4rem;
 
-            justify-content : space-between;
+            justify-content : center;
 
-            /*max-width       : 75ch;*/
+            min-width       : 45ch;
+            max-width       : 75ch;
+            /*max-height: min-content;*/
+
+            p {
+                margin-top : 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width : 800px) {
+
+    .main-content-bg {
+
+        .main-content {
+            grid-template-columns : 1fr;
+
+            .item-text {
+                min-width : 0;
+            }
         }
     }
 }

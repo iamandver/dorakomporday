@@ -1,6 +1,6 @@
 const CONTENT_TYPE = {
-    Rise : "Rise",
-    Video: "Video"
+    Rise : "rise",
+    Video: "video"
 };
 
 const LAUNCH_TYPE = {
@@ -17,6 +17,7 @@ const PORTFOLIO_DB = [
         type       : CONTENT_TYPE.Rise,
         description: "",
         coverImage : "finance-vs-accounting.png",
+        //tools: articulate rise, mindtickle, illustrator, photoshop, premiere pro, google vids
 
         launch: {
             kind: LAUNCH_TYPE.Link,

@@ -8,7 +8,6 @@ function init()
     // itemElement.href   = new URL(item.launch.href, portfolioContentUrl).href;
     // itemElement.target = "_blank";
 
-
     const id   = getIdFromQuery();
     const item = findPortfolioItemById(id);
 
