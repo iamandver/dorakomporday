@@ -52,14 +52,19 @@
     }
 
     .hamburger-btn {
-        display     : none;
-        background  : none;
-        border      : none;
-        height: var(--hamburger-icon-size);
-        width: var(--hamburger-icon-size);
-        flex-shrink : 0;
-        position    : relative;
-        z-index     : 20;
+        display                     : none;
+        background                  : none;
+        border                      : none;
+        height                      : var(--hamburger-icon-size);
+        width                       : var(--hamburger-icon-size);
+        flex-shrink                 : 0;
+        position                    : relative;
+        z-index                     : 20;
+        color                       : black;
+
+        -webkit-tap-highlight-color : transparent;
+        appearance                  : none;
+        -webkit-appearance          : none;
 
         /*color       : var(--color-grey-4);*/
 
@@ -134,7 +139,7 @@
             pointer-events   : none;
 
             opacity          : 0;
-            transform        : translateY(-8px);
+            transform        : translateY(-16px);
 
             transition       : opacity 180ms ease, transform 180ms ease;
         }

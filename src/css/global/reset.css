@@ -48,6 +48,12 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap : balance;
 }
 
+button {
+    -webkit-tap-highlight-color : transparent;
+    -webkit-appearance          : none;
+    appearance                  : none;
+}
+
 button:focus, button:focus-visible {
     outline : none;
 }
